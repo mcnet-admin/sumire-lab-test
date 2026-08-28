@@ -86,8 +86,8 @@ window.onload=async()=>{ await init(); };
 async function init(){
  try{
   const ts=Date.now();
-  const resH=await fetch(`data/calendar/holidays.json?v=${ts}`);
-  holidays=await resH.json();
+ // const resH=await fetch(`data/calendar/holidays.json?v=${ts}`);
+ // holidays=await resH.json();
 
   const res=await fetch(`${WEB_APP_URL}?action=children`);
   const result=await res.json();
