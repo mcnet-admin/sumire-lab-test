@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>預かり保育予約フォーム（平日版 TEST Ver.13）</title>
+<title>預かり保育予約フォーム（平日版 TEST Ver.14）</title>
 <style>
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;padding:20px;background:#e8f5e9;color:#333}
   .container{max-width:520px;margin:0 auto;background:#fff;padding:25px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
@@ -122,7 +122,7 @@
   .schedule-status.warn{display:block;background:#fff3e0;border:1px solid #efc27c;color:#8a5500}
   .schedule-status.error{display:block;background:#fff1f1;border:1px solid #f0c3c3;color:#a12626;font-weight:700}
 
-  /* Ver.13: 一括登録後の変更・取消への導線 */
+  /* Ver.14: 一括登録後の変更・取消への導線 */
   .bulk-edit-guide{display:none;margin-top:10px;padding:12px;border-radius:10px;background:#f5f8ff;border:1px solid #cdd9ef;color:#41546f}
   .bulk-edit-guide-title{font-weight:800;color:#29466f;margin-bottom:5px}
   .bulk-edit-guide p{margin:4px 0;font-size:13px;line-height:1.55}
@@ -140,7 +140,7 @@
 <body>
 <div class="container">
   <a href="index.html" class="btn-back">← ポータル画面へ戻る</a>
-  <h1>預かり保育予約 <span style="font-size:14px;color:#2e7d32;">[平日版 TEST Ver.13]</span></h1>
+  <h1>預かり保育予約 <span style="font-size:14px;color:#2e7d32;">[平日版 TEST Ver.14]</span></h1>
   <div id="date-error" class="error-box"></div>
   <div id="schedule-status" class="schedule-status"></div>
 
@@ -638,7 +638,7 @@ function switchOperationMode(){
   configureOperationFields();
 }
 
-// Ver.13: 一括登録画面から、変更・取消の日別操作へ直接切り替える。
+// Ver.14: 一括登録画面から、変更・取消の日別操作へ直接切り替える。
 function switchToSingleOperation(mode){
   if(mode!=='変更' && mode!=='取消')return;
 
@@ -1075,7 +1075,7 @@ async function lookupExistingReservation(){
   document.getElementById('lookup-error').style.display='none';
 
   try{
-    // Ver.13で使用する既存予約取得の契約：
+    // Ver.14で使用する既存予約取得の契約：
     // GET ?action=reservation&child_id=...&date=...
     // {status:'success', reservation:{reservation_id,date,end_time,time_code,pickup,memo,status}}
     const url=`${WEB_APP_URL}?action=reservation&child_id=${encodeURIComponent(childId)}&date=${encodeURIComponent(dateStr)}`;
@@ -1500,7 +1500,7 @@ async function handleBulkConfirm(common){
   if(!confirm(`${studentName}\n一括登録：${bulkCandidates.length}日\n${first} ～ ${last}\n${timeLines.join('\n')}\n\nこの内容で一括登録しますか？`))return;
 
   // 開発時の確認用。利用者画面にはJSONを表示しない。
-  console.group('すみれクラブ 一括登録 TEST Ver.13 / 送信データ');
+  console.group('すみれクラブ 一括登録 TEST Ver.14 / 送信データ');
   console.log(data);
   console.groupEnd();
 
